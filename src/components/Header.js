@@ -4,24 +4,24 @@ import { SiHashnode } from 'react-icons/si'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { AiOutlineDown, AiOutlineUp } from 'react-icons/ai'
 
-function Header() {
+function Header({ onPageSelction }) {
 
   const [navbarOpen, setNavbarOpen] = useState(false);
-  const [pageSelected, setPageSelected] = useState('home')
+  
 
   return (
     <div className="header">
         <div className="nav-container">
-          <h1 id='hamburger' onClick={() => setNavbarOpen(pre => !pre)}>
-            <GiHamburgerMenu /> &nbsp; {navbarOpen ? <AiOutlineDown /> : <AiOutlineUp />}
+          <h1 id='hamburger' onClick={() => setNavbarOpen(open => !open)}>
+          {navbarOpen ? <AiOutlineDown /> : <AiOutlineUp />} &nbsp; <GiHamburgerMenu /> 
           </h1>
         </div>
         <div className="divider-container"><div className="divider-line"></div></div>
         <ul className={`menuNav${navbarOpen ? ' showMenu' : ''}`}>
-          <li><MdOutlineHome />&nbsp; Hagay Haut</li>
-          <li><MdComputer />&nbsp; Projects</li>
-          <li><SiHashnode />&nbsp; Blog</li>
-          <li><MdAlternateEmail />&nbsp; Connect</li>
+          <li className='nav-link'><MdOutlineHome />&nbsp; Hagay Haut</li>
+          <li className='nav-link'><MdComputer />&nbsp; My Projects</li>
+          <li className='nav-link'><SiHashnode />&nbsp; Scriptable Blog</li>
+          <li className='nav-link'><MdAlternateEmail />&nbsp; Let's Connect</li>
 
         </ul>
     </div>
